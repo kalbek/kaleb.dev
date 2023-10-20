@@ -50,6 +50,10 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        american_green: "#3fb94e",
+        dard_jungle_green: "#2A220F",
+        majorelle_blue: "#E5E24A",
+        button_blue: "#2ba5ea",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -69,6 +73,15 @@ module.exports = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      fontFamily: {
+        burtons: "burtons",
+      },
+      backgroundImage: {
+        magical:
+          "radial-gradient(ellipse at center, rgba(25, 25, 112, 1) 0%, rgba(0, 0, 0, 1) 100%)",
+        gradient_primary: "linear-gradient(to right , #3fb94e, #2ba5ea)",
+        gradient_to_bottom: "linear-gradient(to bottom , #3fb94e, #2ba5ea)",
       },
     },
   },
