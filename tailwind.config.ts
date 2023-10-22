@@ -54,6 +54,9 @@ module.exports = {
         dard_jungle_green: "#2A220F",
         majorelle_blue: "#E5E24A",
         button_blue: "#2ba5ea",
+        crayola: "#c4d1ec",
+        turquoise: "#5EEAD4",
+        cadet_gray: "#94A3B8",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -78,6 +81,7 @@ module.exports = {
         burtons: "burtons",
       },
       backgroundImage: {
+        stunning: "url('/public/stunning.jpg')",
         magical:
           "radial-gradient(ellipse at center, rgba(25, 25, 112, 1) 0%, rgba(0, 0, 0, 1) 100%)",
         gradient_primary: "linear-gradient(to right , #3fb94e, #2ba5ea)",
