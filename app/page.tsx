@@ -7,8 +7,7 @@ import localFont from "next/font/local";
 import { SiAngellist } from "react-icons/si";
 import { FiZap } from "react-icons/fi";
 import kaleb from "../public/kaleb.jpeg";
-import { useEffect, useState } from "react";
-import { Poppins } from "next/font/google";
+import { useEffect, useState, useRef } from "react";
 
 const burtons = localFont({
   src: "../public/fonts/Burtons.otf",
@@ -19,9 +18,52 @@ const segoe = localFont({
 
 export default function Home() {
   const [activeMobileNav, setActiveMobileNav] = useState(false);
-  useEffect(() => {
-    console.log("active mobile menu nav: ", activeMobileNav);
-  }, [activeMobileNav]);
+
+  const [activeSection, setActiveSection] = useState("about-me"); // Initialize with the ID of the first section
+
+  const aboutMeRef = useRef<HTMLLIElement | null>(null);
+  const myWorksRef = useRef<HTMLLIElement | null>(null);
+  const contactMeRef = useRef<HTMLLIElement | null>(null);
+  const experienceRef = useRef<HTMLLIElement | null>(null);
+  
+  const sectionRefs : {
+    [key: string]: React.RefObject<HTMLLIElement | null>;
+  } = {
+    'about-me': aboutMeRef,
+    'my-works': myWorksRef,
+    'contact-me': contactMeRef,
+    'experience': experienceRef,
+  };
+useEffect(() => {
+
+  const handleScroll = () => {
+    let activeSectionCandidate = "about-me";
+
+    for (const sectionId in sectionRefs) {
+      const sectionRef = sectionRefs[sectionId] as React.RefObject<HTMLLIElement | null>;
+      
+      if (sectionRef.current) {
+        const sectionTop = sectionRef.current.getBoundingClientRect().top;
+        
+        // You can adjust this threshold value as needed
+        if (sectionTop >= 0 && sectionTop <= window.innerHeight * 0.5) {
+          activeSectionCandidate = sectionId;
+          console.log(activeSectionCandidate)
+          setActiveSection(activeSectionCandidate);
+          break; // Stop checking once a section is found within the viewport
+        }
+      }
+    }
+
+  };
+  console.log("active section: ", activeSection)
+  window.addEventListener("scroll", handleScroll);
+
+ 
+}, [activeSection, aboutMeRef, myWorksRef, contactMeRef, experienceRef]);
+
+
+  // Now, 'activeSection' state will contain the ID of the section in view
 
   return (
     <>
@@ -32,89 +74,63 @@ export default function Home() {
       <main
         className={`${segoe.className} min-h-screen px-10 bg-magical text-white`}
       >
-        <nav className="py-10 flex justify-between fixed bg-inherit z-10 w-full opacity-100">
+        <nav className="flex justify-between fixed  z-10 w-full opacity-100 bg-rich_black">
           <h1
             className={`${burtons.className}  md:pl-[8.5%] text-2xl text-transparent bg-clip-text bg-gradient_primary`}
           >
-            <div>kaleb bekele</div>
+            <div className="mt-10">kaleb bekele</div>
             {/* <div className="md:hidden">k. n.</div> */}
           </h1>
           {/* desktop menu */}
-          <ul className="hidden max-lg:fixed md:flex lg:gap-10 md:gap-5 md:mt-2 md:absolute lg:right-[20%] md:right-[25%] ">
-            <li className="hover:scale-110 hover:text-transparent bg-clip-text bg-gradient_primary cursor-pointer">
-              About me
+          <ul className="bg-rich_black flex justify-end  md:flex lg:gap-10 md:gap-5  py-10 pr-[20%] text-xl">
+            <li
+              className={`${
+                activeSection === "about-me"
+                  ? "text-turquoise"
+                  : "hover:scale-110 cursor-pointer text-crayola"
+              }`}
+            >
+              <a href="#about-me">About me</a>
             </li>
-            <li className="hover:scale-110 hover:text-transparent bg-clip-text bg-gradient_primary cursor-pointer">
-              My Works
+            <li
+              className={`${
+                activeSection === "my-works"
+                  ? "text-turquoise"
+                  : "hover:scale-110 cursor-pointer text-crayola"
+              }`}
+            >
+              <a href="#my-works">My Works</a>
             </li>
-            <li className="hover:scale-110 hover:text-transparent bg-clip-text bg-gradient_primary cursor-pointer">
-              Contact Me
+            <li
+              className={`${
+                activeSection === "contact-me"
+                  ? "text-turquoise"
+                  : "hover:scale-110 cursor-pointer text-crayola"
+              }`}
+            >
+              <a href="#contact-me">Contact Me</a>
             </li>
-            <li className="hover:scale-110 hover:text-transparent bg-clip-text bg-gradient_primary cursor-pointer">
-              Experience
-            </li>
-          </ul>
-          {/* Mobile menu */}
-          <div
-            onClick={() => setActiveMobileNav(!activeMobileNav)}
-            className="md:hidden z-10 scale-150"
-          >
-            {!activeMobileNav ? <FaBars /> : <FaTimes />}
-          </div>
-
-          <ul
-            className={
-              !activeMobileNav
-                ? "hidden"
-                : "bg-magical absolute top-0 left-0 w-full h-screen flex flex-col justify-center items-center"
-            }
-          >
-            {/* <li className="absolute top-10 left-10">
-              <h1
-                className={`${burtons.className} text-3xl text-transparent bg-clip-text bg-gradient_primary`}
-              >
-                k. n.
-              </h1>
-            </li> */}
-            <li className="mt-[-20px] py-6 text-4xl hover:scale-110 hover:text-transparent bg-clip-text bg-gradient_primary">
-              About me
-            </li>
-            <li className="py-6 text-4xl hover:scale-110 hover:text-transparent bg-clip-text bg-gradient_primary">
-              My Works
-            </li>
-            <li className="py-6 text-4xl hover:scale-110 hover:text-transparent bg-clip-text bg-gradient_primary">
-              Contact Me
-            </li>
-            <li className="py-6 text-4xl hover:scale-110 hover:text-transparent bg-clip-text bg-gradient_primary">
-              Experience
+            <li
+              className={`${
+                activeSection === "experience"
+                  ? "text-turquoise"
+                  : "hover:scale-110 cursor-pointer text-crayola"
+              }`}
+            >
+              <a href="#experience">Experience</a>
             </li>
           </ul>
-          {/* <li className="fixed bottom-[50%] bg-opacity-80 border-white">
-              <BsFillMoonStarsFill />
-              <BsSun />
-            </li> */}
-          {/* <ul className="flex items-center">
-              <li>
-                <a
-                  className="bg-gradient-to-r from-cyan-500 to-american_green text-white px-4 py-2 rounded-md ml-8"
-                  href="#"
-                >
-                  Resume
-                </a>
-              </li>
-            </ul> */}
         </nav>
         {/* <div className="-mt-2 fixed outline pl-[8%] w-[50%] border-2 border-white text-left flex-col items-center justify-between"> */}
         {/* HERO SECTION */}
         <div className="flex flex-col lg:flex-row bg-red align-center items-start w-full max-md:pt-20 md:pt-20">
-          <div className="max-md:mt-5 h-auto lg:fixed w-full md:mt-[8%] md:pl-[8%] md:w-[60%] lg:w-[50%] text-left flex-col items-center justify-between ">
+          <div className="lg:mt-[-4px] lg:pt-12 h-auto lg:fixed w-full md:mt-[8%] md:pl-[8%] md:w-[60%] lg:w-[50%] text-left flex-col items-center justify-between ">
             <h1
-              className={` tracking-tighter md:text-7xl text-5xl  font-black text-crayola flex flex-col md:flex-row w-full `}
+              className={` tracking-tighter md:text-7xl text-5xl  font-black flex flex-col md:flex-row w-full text-crayola`}
             >
               <span className="md:text-7xl relative ">
                 Meet Kaleb <span className="text-sm">&nbsp;</span>
               </span>{" "}
-              
             </h1>
             <h2 className="text-2xl pt-6 font-bold  py-2 text-crayola">
               A FullStack Developer &<br /> Software Sorcerer.
@@ -148,32 +164,127 @@ export default function Home() {
               </li>
             </ul>
           </div>
-          <div className=" w-[55%] mr-10 h-auto">
-            {" "}
-          </div>
+          <div className=" w-[55%] mr-10 h-auto"> </div>
 
           {/* about, experience, works and contact section */}
-          <div className="pl-[8%] lg:w-[50%] w-full border-2 border-white text-left flex-col items-center justify-between">
-            <div className="relative mx-auto bg-gradient_to_bottom rounded-full w-80 h-80 mt-20 overflow-hidden">
-              <Image src={kaleb} alt="kalebs' image" />
-            </div>
-            <div className=" ">cards</div>
-            <div className="relative mx-auto bg-gradient_to_bottom rounded-full w-80 h-80 mt-20 overflow-hidden">
-              <Image src={kaleb} alt="kalebs' image" />
-            </div>
-            <div className=" ">cards</div>
-            <div className="relative mx-auto bg-gradient_to_bottom rounded-full w-80 h-80 mt-20 overflow-hidden">
-              <Image src={kaleb} alt="kalebs' image" />
-            </div>
-            <div className=" ">cards</div>
-            <div className="relative mx-auto bg-gradient_to_bottom rounded-full w-80 h-80 mt-20 overflow-hidden">
-              <Image src={kaleb} alt="kalebs' image" />
-            </div>
-            <div className=" ">cards</div>
-            <div className="relative mx-auto bg-gradient_to_bottom rounded-full w-80 h-80 mt-20 overflow-hidden">
-              <Image src={kaleb} alt="kalebs' image" />
-            </div>
-            <div className=" ">cards</div>
+          <div className="lg:w-[63%] w-full text-left flex-col items-start mt-12 ">
+            <section id="about-me" ref={aboutMeRef} className="md:pt-[16%]">
+              <p className="text-cadet_gray text-2xl">
+                I am passionate about bringing digital dreams to life. Whether
+                it&apos;s inventing captivating products, conjuring enchanting
+                features, or weaving the fabric of responsive websites, i&apos;m
+                here to make it all happen. Explore my projects and journey, and{" "}
+                <span className="text-turquoise">
+                  {" "}
+                  let&apos;s turn your visions into reality.{" "}
+                </span>
+              </p>
+              <div className=" ">cards</div>
+              <div className="relative mx-auto bg-gradient_to_bottom rounded-full w-80 h-80 mt-20 overflow-hidden">
+                <Image src={kaleb} alt="kalebs' image" />
+              </div>
+              <div className=" ">cards</div>
+              <div className="relative mx-auto bg-gradient_to_bottom rounded-full w-80 h-80 mt-20 overflow-hidden">
+                <Image src={kaleb} alt="kalebs' image" />
+              </div>
+              <div className=" ">cards</div>
+              <div className="relative mx-auto bg-gradient_to_bottom rounded-full w-80 h-80 mt-20 overflow-hidden">
+                <Image src={kaleb} alt="kalebs' image" />
+              </div>
+              <div className=" ">cards</div>
+              <div className="relative mx-auto bg-gradient_to_bottom rounded-full w-80 h-80 mt-20 overflow-hidden">
+                <Image src={kaleb} alt="kalebs' image" />
+              </div>
+              <div className=" ">cards</div>
+            </section>
+            <section id="my-works" ref={myWorksRef}  className="md:pt-[16%]">
+              WORKS SECTION: <p className="text-cadet_gray text-2xl">
+                I am passionate about bringing digital dreams to life. Whether
+                it&apos;s inventing captivating products, conjuring enchanting
+                features, or weaving the fabric of responsive websites, i&apos;m
+                here to make it all happen. Explore my projects and journey, and{" "}
+                <span className="text-turquoise">
+                  {" "}
+                  let&apos;s turn your visions into reality.{" "}
+                </span>
+              </p>
+              <div className=" ">cards</div>
+              <div className="relative mx-auto bg-gradient_to_bottom rounded-full w-80 h-80 mt-20 overflow-hidden">
+                <Image src={kaleb} alt="kalebs' image" />
+              </div>
+              <div className=" ">cards</div>
+              <div className="relative mx-auto bg-gradient_to_bottom rounded-full w-80 h-80 mt-20 overflow-hidden">
+                <Image src={kaleb} alt="kalebs' image" />
+              </div>
+              <div className=" ">cards</div>
+              <div className="relative mx-auto bg-gradient_to_bottom rounded-full w-80 h-80 mt-20 overflow-hidden">
+                <Image src={kaleb} alt="kalebs' image" />
+              </div>
+              <div className=" ">cards</div>
+              <div className="relative mx-auto bg-gradient_to_bottom rounded-full w-80 h-80 mt-20 overflow-hidden">
+                <Image src={kaleb} alt="kalebs' image" />
+              </div>
+              <div className=" ">cards</div>
+            </section>
+            <section id="contact-me" ref={contactMeRef}  className="md:pt-[16%]">
+              CONTACT ME SECTION: <p className="text-cadet_gray text-2xl">
+                I am passionate about bringing digital dreams to life. Whether
+                it&apos;s inventing captivating products, conjuring enchanting
+                features, or weaving the fabric of responsive websites, i&apos;m
+                here to make it all happen. Explore my projects and journey, and{" "}
+                <span className="text-turquoise">
+                  {" "}
+                  let&apos;s turn your visions into reality.{" "}
+                </span>
+              </p>
+              <div className=" ">cards</div>
+              <div className="relative mx-auto bg-gradient_to_bottom rounded-full w-80 h-80 mt-20 overflow-hidden">
+                <Image src={kaleb} alt="kalebs' image" />
+              </div>
+              <div className=" ">cards</div>
+              <div className="relative mx-auto bg-gradient_to_bottom rounded-full w-80 h-80 mt-20 overflow-hidden">
+                <Image src={kaleb} alt="kalebs' image" />
+              </div>
+              <div className=" ">cards</div>
+              <div className="relative mx-auto bg-gradient_to_bottom rounded-full w-80 h-80 mt-20 overflow-hidden">
+                <Image src={kaleb} alt="kalebs' image" />
+              </div>
+              <div className=" ">cards</div>
+              <div className="relative mx-auto bg-gradient_to_bottom rounded-full w-80 h-80 mt-20 overflow-hidden">
+                <Image src={kaleb} alt="kalebs' image" />
+              </div>
+              <div className=" ">cards</div>
+            </section>
+            <section id="experience" ref={experienceRef}  className="md:pt-[16%]">
+              EXPERIENCE SECTION: <p className="text-cadet_gray text-2xl">
+                I am passionate about bringing digital dreams to life. Whether
+                it&apos;s inventing captivating products, conjuring enchanting
+                features, or weaving the fabric of responsive websites, i&apos;m
+                here to make it all happen. Explore my projects and journey, and{" "}
+                <span className="text-turquoise">
+                  {" "}
+                  let&apos;s turn your visions into reality.{" "}
+                </span>
+              </p>
+              <div className=" ">cards</div>
+              <div className="relative mx-auto bg-gradient_to_bottom rounded-full w-80 h-80 mt-20 overflow-hidden">
+                <Image src={kaleb} alt="kalebs' image" />
+              </div>
+              <div className=" ">cards</div>
+              <div className="relative mx-auto bg-gradient_to_bottom rounded-full w-80 h-80 mt-20 overflow-hidden">
+                <Image src={kaleb} alt="kalebs' image" />
+              </div>
+              <div className=" ">cards</div>
+              <div className="relative mx-auto bg-gradient_to_bottom rounded-full w-80 h-80 mt-20 overflow-hidden">
+                <Image src={kaleb} alt="kalebs' image" />
+              </div>
+              <div className=" ">cards</div>
+              <div className="relative mx-auto bg-gradient_to_bottom rounded-full w-80 h-80 mt-20 overflow-hidden">
+                <Image src={kaleb} alt="kalebs' image" />
+              </div>
+              <div className=" ">cards</div>
+
+            </section>
           </div>
         </div>
       </main>

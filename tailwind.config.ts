@@ -57,6 +57,7 @@ module.exports = {
         crayola: "#c4d1ec",
         turquoise: "#5EEAD4",
         cadet_gray: "#94A3B8",
+        rich_black: "rgba(8, 8, 37, 0.8)",
       },
       borderRadius: {
         lg: "var(--radius)",
