@@ -8,14 +8,7 @@ import { SiAngellist } from "react-icons/si";
 import { FiZap } from "react-icons/fi";
 import kaleb from "../public/kaleb.jpeg";
 import { useEffect, useState, useRef } from "react";
-import {
-  Link,
-  Button,
-  Element,
-  Events,
-  animateScroll as scroll,
-  scrollSpy,
-} from "react-scroll";
+import { Link } from "react-scroll";
 
 const burtons = localFont({
   src: "../public/fonts/Burtons.otf",
@@ -25,6 +18,18 @@ const segoe = localFont({
 });
 
 export default function Home() {
+  const divRef = useRef<HTMLDivElement | null>(null);
+
+  // Function to handle the click event
+  const handleClick = () => {
+    console.log("Div clicked");
+  };
+
+  useEffect(() => {
+    if (divRef.current) {
+      divRef.current.click();
+    }
+  }, []);
   const [activeMobileNav, setActiveMobileNav] = useState(false);
 
   const [activeSection, setActiveSection] = useState("about-me"); // Initialize with the ID of the first section
@@ -88,7 +93,14 @@ export default function Home() {
           </h1>
           {/* desktop menu */}
           <ul className="bg-rich_black flex justify-end  md:flex lg:gap-10 md:gap-5  py-10 pr-[20%] text-xl">
-            <li className="hover:scale-110 cursor-pointer text-crayola">
+            <li
+              className={`${
+                activeSection === "about-me"
+                  ? "text-turquoise"
+                  : "hover:scale-110 cursor-pointer text-crayola"
+              }`}
+              onClick={handleClick}
+            >
               <Link
                 activeClass={activeSection === "about-me" && "text-turquoise"}
                 to="about-me"
@@ -96,10 +108,16 @@ export default function Home() {
                 smooth={true}
                 duration={500}
               >
-                About me
+                <p ref={divRef}>About me</p>
               </Link>
             </li>
-            <li className="hover:scale-110 cursor-pointer text-crayola">
+            <li
+              className={`${
+                activeSection === "my-works"
+                  ? "text-turquoise"
+                  : "hover:scale-110 cursor-pointer text-crayola"
+              }`}
+            >
               <Link
                 activeClass={activeSection === "my-works" && "text-turquoise"}
                 to="my-works"
@@ -110,7 +128,13 @@ export default function Home() {
                 My Works
               </Link>
             </li>
-            <li className="hover:scale-110 cursor-pointer text-crayola">
+            <li
+              className={`${
+                activeSection === "contact-me"
+                  ? "text-turquoise"
+                  : "hover:scale-110 cursor-pointer text-crayola"
+              }`}
+            >
               <Link
                 activeClass={activeSection === "contact-me" && "text-turquoise"}
                 to="contact-me"
@@ -121,7 +145,13 @@ export default function Home() {
                 Contact Me
               </Link>
             </li>
-            <li className="hover:scale-110 cursor-pointer text-crayola">
+            <li
+              className={`${
+                activeSection === "experience"
+                  ? "text-turquoise"
+                  : "hover:scale-110 cursor-pointer text-crayola"
+              }`}
+            >
               <Link
                 activeClass={activeSection === "experience" && "text-turquoise"}
                 to="experience"
