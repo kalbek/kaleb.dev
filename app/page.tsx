@@ -8,6 +8,14 @@ import { SiAngellist } from "react-icons/si";
 import { FiZap } from "react-icons/fi";
 import kaleb from "../public/kaleb.jpeg";
 import { useEffect, useState, useRef } from "react";
+import {
+  Link,
+  Button,
+  Element,
+  Events,
+  animateScroll as scroll,
+  scrollSpy,
+} from "react-scroll";
 
 const burtons = localFont({
   src: "../public/fonts/Burtons.otf",
@@ -25,43 +33,40 @@ export default function Home() {
   const myWorksRef = useRef<HTMLLIElement | null>(null);
   const contactMeRef = useRef<HTMLLIElement | null>(null);
   const experienceRef = useRef<HTMLLIElement | null>(null);
-  
-  const sectionRefs : {
+
+  const sectionRefs: {
     [key: string]: React.RefObject<HTMLLIElement | null>;
   } = {
-    'about-me': aboutMeRef,
-    'my-works': myWorksRef,
-    'contact-me': contactMeRef,
-    'experience': experienceRef,
+    "about-me": aboutMeRef,
+    "my-works": myWorksRef,
+    "contact-me": contactMeRef,
+    experience: experienceRef,
   };
-useEffect(() => {
+  useEffect(() => {
+    const handleScroll = () => {
+      let activeSectionCandidate = "about-me";
 
-  const handleScroll = () => {
-    let activeSectionCandidate = "about-me";
+      for (const sectionId in sectionRefs) {
+        const sectionRef = sectionRefs[
+          sectionId
+        ] as React.RefObject<HTMLLIElement | null>;
 
-    for (const sectionId in sectionRefs) {
-      const sectionRef = sectionRefs[sectionId] as React.RefObject<HTMLLIElement | null>;
-      
-      if (sectionRef.current) {
-        const sectionTop = sectionRef.current.getBoundingClientRect().top;
-        
-        // You can adjust this threshold value as needed
-        if (sectionTop >= 0 && sectionTop <= window.innerHeight * 0.5) {
-          activeSectionCandidate = sectionId;
-          console.log(activeSectionCandidate)
-          setActiveSection(activeSectionCandidate);
-          break; // Stop checking once a section is found within the viewport
+        if (sectionRef.current) {
+          const sectionTop = sectionRef.current.getBoundingClientRect().top;
+
+          // You can adjust this threshold value as needed
+          if (sectionTop >= 0 && sectionTop <= window.innerHeight * 0.5) {
+            activeSectionCandidate = sectionId;
+            console.log(activeSectionCandidate);
+            setActiveSection(activeSectionCandidate);
+            break; // Stop checking once a section is found within the viewport
+          }
         }
       }
-    }
-
-  };
-  console.log("active section: ", activeSection)
-  window.addEventListener("scroll", handleScroll);
-
- 
-}, [activeSection, aboutMeRef, myWorksRef, contactMeRef, experienceRef]);
-
+    };
+    console.log("active section: ", activeSection);
+    window.addEventListener("scroll", handleScroll);
+  }, [activeSection, aboutMeRef, myWorksRef, contactMeRef, experienceRef]);
 
   // Now, 'activeSection' state will contain the ID of the section in view
 
@@ -83,41 +88,49 @@ useEffect(() => {
           </h1>
           {/* desktop menu */}
           <ul className="bg-rich_black flex justify-end  md:flex lg:gap-10 md:gap-5  py-10 pr-[20%] text-xl">
-            <li
-              className={`${
-                activeSection === "about-me"
-                  ? "text-turquoise"
-                  : "hover:scale-110 cursor-pointer text-crayola"
-              }`}
-            >
-              <a href="#about-me">About me</a>
+            <li className="hover:scale-110 cursor-pointer text-crayola">
+              <Link
+                activeClass={activeSection === "about-me" && "text-turquoise"}
+                to="about-me"
+                spy={true}
+                smooth={true}
+                duration={500}
+              >
+                About me
+              </Link>
             </li>
-            <li
-              className={`${
-                activeSection === "my-works"
-                  ? "text-turquoise"
-                  : "hover:scale-110 cursor-pointer text-crayola"
-              }`}
-            >
-              <a href="#my-works">My Works</a>
+            <li className="hover:scale-110 cursor-pointer text-crayola">
+              <Link
+                activeClass={activeSection === "my-works" && "text-turquoise"}
+                to="my-works"
+                spy={true}
+                smooth={true}
+                duration={500}
+              >
+                My Works
+              </Link>
             </li>
-            <li
-              className={`${
-                activeSection === "contact-me"
-                  ? "text-turquoise"
-                  : "hover:scale-110 cursor-pointer text-crayola"
-              }`}
-            >
-              <a href="#contact-me">Contact Me</a>
+            <li className="hover:scale-110 cursor-pointer text-crayola">
+              <Link
+                activeClass={activeSection === "contact-me" && "text-turquoise"}
+                to="contact-me"
+                spy={true}
+                smooth={true}
+                duration={500}
+              >
+                Contact Me
+              </Link>
             </li>
-            <li
-              className={`${
-                activeSection === "experience"
-                  ? "text-turquoise"
-                  : "hover:scale-110 cursor-pointer text-crayola"
-              }`}
-            >
-              <a href="#experience">Experience</a>
+            <li className="hover:scale-110 cursor-pointer text-crayola">
+              <Link
+                activeClass={activeSection === "experience" && "text-turquoise"}
+                to="experience"
+                spy={true}
+                smooth={true}
+                duration={500}
+              >
+                Experience
+              </Link>
             </li>
           </ul>
         </nav>
@@ -166,10 +179,10 @@ useEffect(() => {
           </div>
           <div className=" w-[55%] mr-10 h-auto"> </div>
 
-          {/* about, experience, works and contact section */}
           <div className="lg:w-[63%] w-full text-left flex-col items-start mt-12 ">
+            {/* about me section*/}
             <section id="about-me" ref={aboutMeRef} className="md:pt-[16%]">
-              <p className="text-cadet_gray text-2xl">
+              <p className="text-cadet_gray text-2xl mt-2">
                 I am passionate about bringing digital dreams to life. Whether
                 it&apos;s inventing captivating products, conjuring enchanting
                 features, or weaving the fabric of responsive websites, i&apos;m
@@ -197,8 +210,9 @@ useEffect(() => {
               </div>
               <div className=" ">cards</div>
             </section>
-            <section id="my-works" ref={myWorksRef}  className="md:pt-[16%]">
-              WORKS SECTION: <p className="text-cadet_gray text-2xl">
+            {/* My Works section */}
+            <section id="my-works" ref={myWorksRef} className="md:pt-[16%]">
+              <p className="text-cadet_gray text-2xl mt-2">
                 I am passionate about bringing digital dreams to life. Whether
                 it&apos;s inventing captivating products, conjuring enchanting
                 features, or weaving the fabric of responsive websites, i&apos;m
@@ -226,8 +240,9 @@ useEffect(() => {
               </div>
               <div className=" ">cards</div>
             </section>
-            <section id="contact-me" ref={contactMeRef}  className="md:pt-[16%]">
-              CONTACT ME SECTION: <p className="text-cadet_gray text-2xl">
+            {/* Contact Me Section */}
+            <section id="contact-me" ref={contactMeRef} className="md:pt-[16%]">
+              <p className="text-cadet_gray text-2xl mt-2">
                 I am passionate about bringing digital dreams to life. Whether
                 it&apos;s inventing captivating products, conjuring enchanting
                 features, or weaving the fabric of responsive websites, i&apos;m
@@ -255,8 +270,13 @@ useEffect(() => {
               </div>
               <div className=" ">cards</div>
             </section>
-            <section id="experience" ref={experienceRef}  className="md:pt-[16%]">
-              EXPERIENCE SECTION: <p className="text-cadet_gray text-2xl">
+            {/* Experience Section */}
+            <section
+              id="experience"
+              ref={experienceRef}
+              className="md:pt-[16%]"
+            >
+              <p className="text-cadet_gray text-2xl mt-2">
                 I am passionate about bringing digital dreams to life. Whether
                 it&apos;s inventing captivating products, conjuring enchanting
                 features, or weaving the fabric of responsive websites, i&apos;m
@@ -283,7 +303,6 @@ useEffect(() => {
                 <Image src={kaleb} alt="kalebs' image" />
               </div>
               <div className=" ">cards</div>
-
             </section>
           </div>
         </div>
