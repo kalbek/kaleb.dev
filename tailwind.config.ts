@@ -58,6 +58,10 @@ module.exports = {
         turquoise: "#5EEAD4",
         cadet_gray: "#94A3B8",
         rich_black: "rgba(8, 8, 37, 0.8)",
+        cetacean_blue: "rgba(23, 39, 75, 0.6)",
+        light_cetacean_blue: "rgba(25, 45, 75, 0.8)",
+        robin_egg_blue: "#132C3D",
+        color_text_primary: "#7486A8",
       },
       borderRadius: {
         lg: "var(--radius)",
