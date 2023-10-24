@@ -187,7 +187,7 @@ export default function Home() {
               enchanting features, and weaving responsive websites.
             </p>
             {/* Kaleb's Circular Photo */}
-            <div className="opacity-70 relative bg-gradient_to_bottom rounded-md overflow-hidden w-[40%] h-[40%]  mt-2 ">
+            <div className="opacity-70 hover:opacity-100 relative bg-gradient_to_bottom rounded-md overflow-hidden w-[40%] h-[40%]  mt-2 ">
               <Image src={kaleb} alt="kalebs' image" />
             </div>
             <ul className="text-center mt-6 text-3xl flex gap-6 ">

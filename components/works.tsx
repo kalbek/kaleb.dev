@@ -6,6 +6,7 @@ import adventure from "../public/snowboarding.png";
 import math from "../public/Math-Magicians.png";
 import shopwise from "../public/shop-wise.png";
 import bookstore from "../public/bookstore.png";
+import space from "../public/space.png";
 
 export default function works() {
   return (
@@ -340,7 +341,7 @@ export default function works() {
           <div className="p-6 w-full h-auto  cursor-pointer group-hover:bg-light_cetacean_blue  hover:scale-[100.3%]   hover:bg-light_cetacean_blue rounded-lg ">
             <div className="flex flex-col items-start md:flex-row justify-start ">
               <div className="w-full md:w-[30%] opacity-80 group-hover:opacity-100">
-                <Image src={math} alt="hack_summit website image." />
+                <Image src={space} alt="hack_summit website image." />
               </div>
               <div className="w-full md:w-[60%] py-2 md:py-0 flex flex-col items-start md:ml-4 text-lg font-bold text-crayola">
                 <p className="group-hover:text-turquoise">
@@ -348,8 +349,9 @@ export default function works() {
                   an epic adventure!
                 </p>
                 <p className="text-cadet_gray text-sm mt-4 w-full">
-                  Website for space travellers'. Fetching space API, schedule
-                  rockets and mission. It gets even exciting once you get there.
+                  Website for space travellers&apos;. Fetching space API,
+                  schedule rockets and mission. It gets even exciting once you
+                  get there.
                 </p>
                 <div className="flex gap-4 ml-[-1.7rem]  scale-75 py-4">
                   <div className="inline-flex items-center gap-2">
