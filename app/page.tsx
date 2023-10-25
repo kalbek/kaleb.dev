@@ -283,7 +283,7 @@ export default function Home() {
               </span>{" "}
             </h1>
             <h2 className="text-2xl pt-6 font-bold  py-2 text-crayola">
-              A FullStack Developer &<br /> Software Sorcerer.
+              A FullStack Developer &<br /> Software Enthusiast.
             </h2>
             <p className="text-cadet_gray text-md pt-2 pb-6 md:w-[60%] w-full leading-8 md:leading-2 md:text-lg sm:w-[70%] ">
               Bringing digital dreams to life: crafting captivating products,
