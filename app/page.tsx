@@ -3,14 +3,7 @@ import Image from "next/image";
 import { BsFillMoonStarsFill, BsSun } from "react-icons/bs";
 import { AiFillTwitterCircle, AiFillLinkedin } from "react-icons/ai";
 import { FiExternalLink } from "react-icons/fi";
-import {
-  FaGithub,
-  FaBars,
-  FaTimes,
-  FaLink,
-  FaCode,
-  FaExternalLinkAlt,
-} from "react-icons/fa";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import localFont from "next/font/local";
 import { SiAngellist } from "react-icons/si";
 import { FiZap } from "react-icons/fi";
@@ -19,6 +12,7 @@ import Works from "@/components/works";
 import Experiences from "@/components/experiences";
 
 import { useEffect, useState, useRef } from "react";
+import Contact from "@/components/contact";
 import { Link } from "react-scroll";
 
 const burtons = localFont({
@@ -98,7 +92,7 @@ export default function Home() {
             {/* <div className="md:hidden">k. n.</div> */}
           </h1>
           {/* desktop menu */}
-          <ul className="bg-rich_black flex justify-end  md:flex lg:gap-10 md:gap-5  py-10 pl-[4%] text-lg font-bold text-crayola">
+          <ul className="hidden md:flex bg-rich_black justify-end lg:gap-10 md:gap-5  py-10 pl-[4%] text-lg font-bold text-crayola">
             <li
               className={`${
                 activeSection === "about-me"
@@ -194,16 +188,24 @@ export default function Home() {
             </div>
             <ul className="text-center mt-6 text-3xl flex gap-6 ">
               <li className="opacity-50 cursor-pointer hover:opacity-100 hover:scale-110">
-                <FaGithub />
+                <a href="https://github.com/kalbek">
+                  <FaGithub />
+                </a>
               </li>
               <li className="opacity-50 cursor-pointer hover:opacity-100 hover:scale-110">
-                <AiFillTwitterCircle />
+                <a href="https://twitter.com/knuramo">
+                  <AiFillTwitterCircle />
+                </a>
               </li>
               <li className="opacity-50 cursor-pointer hover:opacity-100 hover:scale-110">
-                <AiFillLinkedin />
+                <a href="https://www.linkedin.com/in/kaleb-nuramo/">
+                  <AiFillLinkedin />
+                </a>
               </li>
               <li className="opacity-50 cursor-pointer hover:opacity-100 hover:scale-110">
-                <SiAngellist />
+                <a href="https://wellfound.com/u/kaleb-nuramo">
+                  <SiAngellist />
+                </a>
               </li>
             </ul>
           </div>
@@ -271,38 +273,12 @@ export default function Home() {
               id="experience"
               ref={experienceRef}
               className="md:pt-[16%]"
-              >
+            >
               <Experiences />
             </section>
             {/* Contact Me Section */}
             <section id="contact-me" ref={contactMeRef} className="md:pt-[16%]">
-              <p className="text-cadet_gray text-2xl mt-2">
-                I am passionate about bringing digital dreams to life. Whether
-                it&apos;s inventing captivating products, conjuring enchanting
-                features, or weaving the fabric of responsive websites, i&apos;m
-                here to make it all happen. Explore my projects and journey, and{" "}
-                <span className="text-turquoise">
-                  {" "}
-                  let&apos;s turn your visions into reality.{" "}
-                </span>
-              </p>
-              <div className=" "></div>
-              <div className="relative mx-auto bg-gradient_to_bottom rounded-full w-80 h-80 mt-20 overflow-hidden">
-                <Image src={kaleb} alt="kalebs' image" />
-              </div>
-              <div className=" ">cards</div>
-              <div className="relative mx-auto bg-gradient_to_bottom rounded-full w-80 h-80 mt-20 overflow-hidden">
-                <Image src={kaleb} alt="kalebs' image" />
-              </div>
-              <div className=" ">cards</div>
-              <div className="relative mx-auto bg-gradient_to_bottom rounded-full w-80 h-80 mt-20 overflow-hidden">
-                <Image src={kaleb} alt="kalebs' image" />
-              </div>
-              <div className=" ">cards</div>
-              <div className="relative mx-auto bg-gradient_to_bottom rounded-full w-80 h-80 mt-20 overflow-hidden">
-                <Image src={kaleb} alt="kalebs' image" />
-              </div>
-              <div className=" ">cards</div>
+              <Contact />
             </section>
           </div>
         </div>
