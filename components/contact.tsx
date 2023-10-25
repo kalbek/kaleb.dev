@@ -1,6 +1,5 @@
 import React from "react";
 import { AiFillTwitterCircle, AiFillLinkedin } from "react-icons/ai";
-import { FaGithub } from "react-icons/fa";
 
 export default function contact() {
   return (
@@ -100,7 +99,7 @@ export default function contact() {
                 <textarea
                   placeholder="Your Message. Don't overthink it. 😃"
                   id="primary-rich-textbox"
-                  rows="6"
+                  rows={6}
                   name="message"
                   className="w-full text-black text-xl bg-crayola  rounded-md py-3 px-4 outline-[#a91079]"
                 ></textarea>
