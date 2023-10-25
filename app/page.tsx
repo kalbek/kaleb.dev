@@ -16,6 +16,7 @@ import { SiAngellist } from "react-icons/si";
 import { FiZap } from "react-icons/fi";
 import kaleb from "../public/kaleb.jpeg";
 import Works from "@/components/works";
+import Experiences from "@/components/experiences";
 
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-scroll";
@@ -97,7 +98,7 @@ export default function Home() {
             {/* <div className="md:hidden">k. n.</div> */}
           </h1>
           {/* desktop menu */}
-          <ul className="bg-rich_black flex justify-end  md:flex lg:gap-10 md:gap-5  py-10 pr-[22.5%] text-lg font-bold text-crayola">
+          <ul className="bg-rich_black flex justify-end  md:flex lg:gap-10 md:gap-5  py-10 pl-[4%] text-lg font-bold text-crayola">
             <li
               className={`${
                 activeSection === "about-me"
@@ -167,6 +168,7 @@ export default function Home() {
               </Link>
             </li>
           </ul>
+          <div className="empty"></div>
         </nav>
         {/* <div className="-mt-2 fixed outline pl-[8%] w-[50%] border-2 border-white text-left flex-col items-center justify-between"> */}
         {/* HERO SECTION */}
@@ -269,34 +271,8 @@ export default function Home() {
               id="experience"
               ref={experienceRef}
               className="md:pt-[16%]"
-            >
-              <p className="text-cadet_gray text-2xl mt-2">
-                I am passionate about bringing digital dreams to life. Whether
-                it&apos;s inventing captivating products, conjuring enchanting
-                features, or weaving the fabric of responsive websites, i&apos;m
-                here to make it all happen. Explore my projects and journey, and{" "}
-                <span className="text-turquoise">
-                  {" "}
-                  let&apos;s turn your visions into reality.{" "}
-                </span>
-              </p>
-              <div className=" ">cards</div>
-              <div className="relative mx-auto bg-gradient_to_bottom rounded-full w-80 h-80 mt-20 overflow-hidden">
-                <Image src={kaleb} alt="kalebs' image" />
-              </div>
-              <div className=" ">cards</div>
-              <div className="relative mx-auto bg-gradient_to_bottom rounded-full w-80 h-80 mt-20 overflow-hidden">
-                <Image src={kaleb} alt="kalebs' image" />
-              </div>
-              <div className=" ">cards</div>
-              <div className="relative mx-auto bg-gradient_to_bottom rounded-full w-80 h-80 mt-20 overflow-hidden">
-                <Image src={kaleb} alt="kalebs' image" />
-              </div>
-              <div className=" ">cards</div>
-              <div className="relative mx-auto bg-gradient_to_bottom rounded-full w-80 h-80 mt-20 overflow-hidden">
-                <Image src={kaleb} alt="kalebs' image" />
-              </div>
-              <div className=" ">cards</div>
+              >
+              <Experiences />
             </section>
             {/* Contact Me Section */}
             <section id="contact-me" ref={contactMeRef} className="md:pt-[16%]">
