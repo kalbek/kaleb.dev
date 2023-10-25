@@ -69,13 +69,7 @@ export default function Home() {
       }
     };
     window.addEventListener("scroll", handleScroll);
-  }, [
-    activeSection,
-    aboutMeRef,
-    myWorksRef,
-    contactMeRef,
-    experienceRef,
-  ]);
+  }, [activeSection, aboutMeRef, myWorksRef, contactMeRef, experienceRef]);
 
   // Now, 'activeSection' state will contain the ID of the section in view
   return (
@@ -104,7 +98,9 @@ export default function Home() {
               }`}
             >
               <Link
-                activeClass={activeSection === "about-me" && "text-turquoise"}
+                activeClass={
+                  activeSection === "about-me" ? "text-turquoise" : ""
+                }
                 to="about-me"
                 spy={true}
                 smooth={true}
@@ -121,7 +117,9 @@ export default function Home() {
               }`}
             >
               <Link
-                activeClass={activeSection === "my-works" && "text-turquoise"}
+                activeClass={
+                  activeSection === "my-works" ? "text-turquoise" : ""
+                }
                 to="my-works"
                 spy={true}
                 smooth={true}
@@ -138,7 +136,9 @@ export default function Home() {
               }`}
             >
               <Link
-                activeClass={activeSection === "experience" && "text-turquoise"}
+                activeClass={
+                  activeSection === "experience" ? "text-turquoise" : ""
+                }
                 to="experience"
                 spy={true}
                 smooth={true}
@@ -155,7 +155,9 @@ export default function Home() {
               }`}
             >
               <Link
-                activeClass={activeSection === "contact-me" && "text-turquoise"}
+                activeClass={
+                  activeSection === "contact-me" ? "text-turquoise" : ""
+                }
                 to="contact-me"
                 spy={true}
                 smooth={true}
@@ -185,7 +187,7 @@ export default function Home() {
                 >
                   <Link
                     activeClass={
-                      activeSection === "about-me" && "text-turquoise"
+                      activeSection === "contact-me" ? "text-turquoise" : ""
                     }
                     to="about-me"
                     spy={true}
@@ -209,7 +211,7 @@ export default function Home() {
                 >
                   <Link
                     activeClass={
-                      activeSection === "my-works" && "text-turquoise"
+                      activeSection === "my-works" ? "text-turquoise" : ""
                     }
                     to="my-works"
                     spy={true}
@@ -230,7 +232,7 @@ export default function Home() {
                 >
                   <Link
                     activeClass={
-                      activeSection === "experience" && "text-turquoise"
+                      activeSection === "experience" ? "text-turquoise" : ""
                     }
                     to="experience"
                     spy={true}
@@ -251,7 +253,7 @@ export default function Home() {
                 >
                   <Link
                     activeClass={
-                      activeSection === "contact-me" && "text-turquoise"
+                      activeSection === "contact-me" ? "text-turquoise" : ""
                     }
                     to="contact-me"
                     spy={true}
