@@ -1,12 +1,9 @@
 "use client";
 import Image from "next/image";
-import { BsFillMoonStarsFill, BsSun } from "react-icons/bs";
 import { AiFillTwitterCircle, AiFillLinkedin } from "react-icons/ai";
-import { FiExternalLink } from "react-icons/fi";
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { FaGithub, FaExternalLinkAlt, FaBars, FaTimes } from "react-icons/fa";
 import localFont from "next/font/local";
 import { SiAngellist } from "react-icons/si";
-import { FiZap } from "react-icons/fi";
 import kaleb from "../public/kaleb.jpeg";
 import Works from "@/components/works";
 import Experiences from "@/components/experiences";
@@ -24,7 +21,10 @@ const segoe = localFont({
 
 export default function Home() {
   const divRef = useRef<HTMLDivElement | null>(null);
-
+  const [mobileMenu, setActiveMobileMenu] = useState(false);
+  const handleMobileMenu = () => {
+    setActiveMobileMenu((prevMobileMenu) => !prevMobileMenu);
+  };
   useEffect(() => {
     if (divRef.current) {
       divRef.current.click();
@@ -51,9 +51,6 @@ export default function Home() {
   useEffect(() => {
     const handleScroll = () => {
       let activeSectionCandidate = "about-me";
-      const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      const maxScrollLimit = 200;
-
       for (const sectionId in sectionRefs) {
         const sectionRef = sectionRefs[
           sectionId
@@ -72,7 +69,14 @@ export default function Home() {
       }
     };
     window.addEventListener("scroll", handleScroll);
-  }, [activeSection, aboutMeRef, myWorksRef, contactMeRef, experienceRef]);
+  }, [
+    activeSection,
+    aboutMeRef,
+    myWorksRef,
+    contactMeRef,
+    experienceRef,
+    sectionRefs,
+  ]);
 
   // Now, 'activeSection' state will contain the ID of the section in view
   return (
@@ -162,7 +166,109 @@ export default function Home() {
               </Link>
             </li>
           </ul>
-          <div className="empty"></div>
+          <div className=""></div>
+          {/* mobile menu */}
+          <div
+            className="md:hidden fixed top-12 right-10 z-20 scale-110 sm:flex"
+            onClick={handleMobileMenu}
+          >
+            {mobileMenu ? <FaTimes /> : <FaBars />}
+          </div>
+          {mobileMenu ? (
+            <div className="absolute bg-magical flex items-center justify-center h-screen w-[90%] left-0">
+              <ul>
+                <li
+                  className={`${
+                    activeSection === "about-me"
+                      ? "text-turquoise"
+                      : "hover:scale-110 cursor-pointer text-crayola"
+                  }`}
+                >
+                  <Link
+                    activeClass={
+                      activeSection === "about-me" && "text-turquoise"
+                    }
+                    to="about-me"
+                    spy={true}
+                    smooth={true}
+                    duration={500}
+                  >
+                    <div
+                      onClick={() => setActiveMobileMenu(false)}
+                      className="text-3xl py-6"
+                    >
+                      <p ref={divRef}>About me</p>
+                    </div>
+                  </Link>
+                </li>
+                <li
+                  className={`${
+                    activeSection === "my-works"
+                      ? "text-turquoise"
+                      : "hover:scale-110 cursor-pointer text-crayola"
+                  }`}
+                >
+                  <Link
+                    activeClass={
+                      activeSection === "my-works" && "text-turquoise"
+                    }
+                    to="my-works"
+                    spy={true}
+                    smooth={true}
+                    duration={500}
+                  >
+                    <div onClick={() => setActiveMobileMenu(false)}>
+                      <p className="text-3xl py-6">My Works</p>
+                    </div>
+                  </Link>
+                </li>
+                <li
+                  className={`${
+                    activeSection === "experience"
+                      ? "text-turquoise"
+                      : "hover:scale-110 cursor-pointer text-crayola"
+                  }`}
+                >
+                  <Link
+                    activeClass={
+                      activeSection === "experience" && "text-turquoise"
+                    }
+                    to="experience"
+                    spy={true}
+                    smooth={true}
+                    duration={500}
+                  >
+                    <div onClick={() => setActiveMobileMenu(false)}>
+                      <p className="text-3xl py-6">Experience</p>
+                    </div>
+                  </Link>
+                </li>
+                <li
+                  className={`${
+                    activeSection === "contact-me"
+                      ? "text-turquoise"
+                      : "hover:scale-110 cursor-pointer text-crayola"
+                  }`}
+                >
+                  <Link
+                    activeClass={
+                      activeSection === "contact-me" && "text-turquoise"
+                    }
+                    to="contact-me"
+                    spy={true}
+                    smooth={true}
+                    duration={500}
+                  >
+                    <div onClick={() => setActiveMobileMenu(false)}>
+                      <p className="text-3xl py-6">Contact Me</p>
+                    </div>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <></>
+          )}
         </nav>
         {/* <div className="-mt-2 fixed outline pl-[8%] w-[50%] border-2 border-white text-left flex-col items-center justify-between"> */}
         {/* HERO SECTION */}
