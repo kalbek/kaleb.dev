@@ -37,18 +37,18 @@ export default function Home() {
   const myWorksRef = useRef<HTMLLIElement | null>(null);
   const contactMeRef = useRef<HTMLLIElement | null>(null);
   const experienceRef = useRef<HTMLLIElement | null>(null);
-  const waveRef = useRef<HTMLElement | null>(null);
-
-  const sectionRefs: {
-    [key: string]: React.RefObject<HTMLLIElement | null>;
-  } = {
-    "about-me": aboutMeRef,
-    "my-works": myWorksRef,
-    "contact-me": contactMeRef,
-    experience: experienceRef,
-  };
+  // const waveRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
+    const sectionRefs: {
+      [key: string]: React.RefObject<HTMLLIElement | null>;
+    } = {
+      "about-me": aboutMeRef,
+      "my-works": myWorksRef,
+      "contact-me": contactMeRef,
+      experience: experienceRef,
+    };
+
     const handleScroll = () => {
       let activeSectionCandidate = "about-me";
       for (const sectionId in sectionRefs) {
@@ -75,7 +75,6 @@ export default function Home() {
     myWorksRef,
     contactMeRef,
     experienceRef,
-    sectionRefs,
   ]);
 
   // Now, 'activeSection' state will contain the ID of the section in view
