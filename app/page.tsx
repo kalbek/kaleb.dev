@@ -176,7 +176,7 @@ export default function Home() {
             {mobileMenu ? <FaTimes /> : <FaBars />}
           </div>
           {mobileMenu ? (
-            <div className="absolute bg-magical flex items-center justify-center h-screen w-[90%] left-0">
+            <div className="absolute bg-magical flex items-center justify-center h-screen w-full  left-[-2rem]">
               <ul>
                 <li
                   className={`${
@@ -290,31 +290,37 @@ export default function Home() {
               enchanting features, and weaving responsive websites.
             </p>
             {/* Kaleb's Circular Photo */}
-            <div className="opacity-70 hover:opacity-100 relative bg-gradient_to_bottom rounded-md overflow-hidden w-[40%] h-[40%]  mt-2 ">
-              <Image src={kaleb} alt="kalebs' image" />
+            <div className=" opacity-90 hover:opacity-100 flex  flex-col gap-4 md:flex-row justify-start  relative rounded-md  md:w-[40%] md:h-[40%] w-[70%] ">
+              <Image src={kaleb} alt="kalebs' image"  className="  rounded-md"/>
+              <ul className="text-center  md:absolute left-[100%] text-3xl flex gap-6 md:ml-2 md:gap-4   md:flex-col md:scale-75 scale-[90%]">
+                <li className="opacity-50 cursor-pointer hover:opacity-100 hover:scale-110">
+                  <a target="_blank" href="https://github.com/kalbek bg-white">
+                    <FaGithub />
+                  </a>
+                </li>
+                <li className="opacity-50 cursor-pointer hover:opacity-100 hover:scale-110">
+                  <a target="_blank" href="https://twitter.com/knuramo">
+                    <AiFillTwitterCircle />
+                  </a>
+                </li>
+                <li className="opacity-50 cursor-pointer hover:opacity-100 hover:scale-110">
+                  <a
+                    target="_blank"
+                    href="https://www.linkedin.com/in/kaleb-nuramo/"
+                  >
+                    <AiFillLinkedin />
+                  </a>
+                </li>
+                <li className="opacity-50 cursor-pointer hover:opacity-100 hover:scale-110">
+                  <a
+                    target="_blank"
+                    href="https://wellfound.com/u/kaleb-nuramo"
+                  >
+                    <SiAngellist />
+                  </a>
+                </li>
+              </ul>
             </div>
-            <ul className="text-center mt-6 text-3xl flex gap-6 ">
-              <li className="opacity-50 cursor-pointer hover:opacity-100 hover:scale-110">
-                <a href="https://github.com/kalbek">
-                  <FaGithub />
-                </a>
-              </li>
-              <li className="opacity-50 cursor-pointer hover:opacity-100 hover:scale-110">
-                <a href="https://twitter.com/knuramo">
-                  <AiFillTwitterCircle />
-                </a>
-              </li>
-              <li className="opacity-50 cursor-pointer hover:opacity-100 hover:scale-110">
-                <a href="https://www.linkedin.com/in/kaleb-nuramo/">
-                  <AiFillLinkedin />
-                </a>
-              </li>
-              <li className="opacity-50 cursor-pointer hover:opacity-100 hover:scale-110">
-                <a href="https://wellfound.com/u/kaleb-nuramo">
-                  <SiAngellist />
-                </a>
-              </li>
-            </ul>
           </div>
           <div className=" w-[55%] mr-10 h-auto"> </div>
 
@@ -347,7 +353,7 @@ export default function Home() {
                     I&apos;ve got you covered.
                   </span>{" "}
                   Take a moment to
-                  <span className="text-turquoise"> explore my portfolio</span>
+                  <span className="text-turquoise"> explore my portfolio </span>
                   and discover the artistry in my work.{" "}
                 </div>{" "}
                 If you&apos;re excited about what you see and have a project
@@ -359,14 +365,19 @@ export default function Home() {
                 <br />
               </p>
             </section>
-            <a href="https://docs.google.com/document/d/1-81GPZdvsElOPzOzqAUYaPSMo81-6jz39pCQbtBnEwU/edit?usp=sharing">
-              <a className="flex gap-2 felx-inline items-center mt-10  ">
-                <p className="font-extrabold text-crayola">View Resumé </p>
+            <div className=" mt-10 w-fit">
+              <a
+                target="_blank"
+                href="https://docs.google.com/document/d/1-81GPZdvsElOPzOzqAUYaPSMo81-6jz39pCQbtBnEwU/edit?usp=sharing"
+                className="flex gap-2 flex-inline items-center"
+              >
+                <p className="">View Resumé </p>
                 <div className="scale-75">
                   <FaExternalLinkAlt />
                 </div>
               </a>
-            </a>
+            </div>
+
             {/* My Works section */}
             <section
               id="my-works"

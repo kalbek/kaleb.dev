@@ -30,10 +30,7 @@ export default function contact() {
                       data-original="#000000"
                     />
                   </svg>
-                  <a
-                    href="javascript:void(0)"
-                    className="text-white text-sm ml-3"
-                  >
+                  <a className="text-white text-sm ml-3">
                     <strong>access2kaleb.com</strong>
                   </a>
                 </li>
@@ -50,10 +47,7 @@ export default function contact() {
                       data-original="#000000"
                     ></path>
                   </svg>
-                  <a
-                    href="javascript:void(0)"
-                    className="text-white text-sm ml-3"
-                  >
+                  <a className="text-white text-sm ml-3">
                     <strong>+251-944-274-636</strong>
                   </a>
                 </li>
@@ -63,6 +57,7 @@ export default function contact() {
                   <a
                     href="https://twitter.com/KNuramo"
                     className="flex flex-inline items-center gap-2"
+                    target="_blank"
                   >
                     <div className="scale-75">
                       <AiFillTwitterCircle />

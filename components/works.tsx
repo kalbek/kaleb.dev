@@ -12,7 +12,7 @@ export default function works() {
   return (
     <section className="md:mt-[16%] flex flex-col items-start gap-2 View Full Résumé">
       <div className="group">
-        <a href="https://kalbek.github.io/Capstone-1-Hack-Summit/">
+        <a target="_blank" href="https://kalbek.github.io/Capstone-1-Hack-Summit/">
           {/* Hacksummit works card. */}
           <div className=" p-6 w-full h-auto cursor-pointer group-hover:bg-cetacean_blue hover:scale-[100.3%]   hover:bg-light_cetacean_blue rounded-lg ">
             <div className="flex flex-col items-start md:flex-row justify-start ">
@@ -35,13 +35,13 @@ export default function works() {
                 <div className="flex gap-4 ml-[-1.7rem]  scale-75 py-4">
                   <div className="inline-flex items-center gap-2">
                     <FaLink />{" "}
-                    <a href="https://kalbek.github.io/Capstone-1-Hack-Summit/">
+                    <a target="_blank" href="https://kalbek.github.io/Capstone-1-Hack-Summit/">
                       Webapp
                     </a>
                   </div>
                   <div className="inline-flex items-center gap-2">
                     <FaCode />{" "}
-                    <a href="https://github.com/kalbek/Hack-Summit">
+                    <a target="_blank" href="https://github.com/kalbek/Hack-Summit">
                       Source Code
                     </a>
                   </div>
@@ -81,7 +81,7 @@ export default function works() {
       </div>
       {/* Outdoor adventures works card. */}
       <div className="group">
-        <a href="https://outdoor-adventures-booking.onrender.com/">
+        <a target="_blank" href="https://outdoor-adventures-booking.onrender.com/">
           <div className="p-6 w-full h-auto cursor-pointer hover:scale-[100.3%] group-hover:bg-light_cetacean_blue rounded-lg ">
             <div className="flex flex-col items-start md:flex-row justify-start">
               <div className="w-full md:w-[30%]  opacity-80 group-hover:opacity-100">
@@ -101,13 +101,13 @@ export default function works() {
                 <div className="flex gap-4 ml-[-1.7rem]  scale-75 py-4">
                   <div className="inline-flex items-center gap-2">
                     <FaLink />{" "}
-                    <a href="https://outdoor-adventures-booking.onrender.com/">
+                    <a target="_blank" href="https://outdoor-adventures-booking.onrender.com/">
                       Webapp
                     </a>
                   </div>
                   <div className="inline-flex items-center gap-2">
                     <FaCode />{" "}
-                    <a href="https://github.com/bilalrajput09/Outdoor-Adventure-Bookings">
+                    <a target="_blank" href="https://github.com/bilalrajput09/Outdoor-Adventure-Bookings">
                       Source Code
                     </a>
                   </div>
@@ -148,7 +148,7 @@ export default function works() {
 
       {/* Shopwise works card. */}
       <div className="group">
-        <a href="https://shopwise-ss77.onrender.com/">
+        <a target="_blank" href="https://shopwise-ss77.onrender.com/">
           <div className="p-6 w-full h-auto cursor-pointer group-hover:bg-light_cetacean_blue hover:scale-[100.3%]   hover:bg-light_cetacean_blue rounded-lg ">
             <div className="flex flex-col items-start md:flex-row justify-start ">
               <div className="w-full md:w-[30%]  opacity-80 group-hover:opacity-100">
@@ -169,11 +169,11 @@ export default function works() {
                 <div className="flex gap-4 ml-[-1.7rem]  scale-75 py-4">
                   <div className="inline-flex items-center gap-2">
                     <FaLink />{" "}
-                    <a href="https://shopwise-ss77.onrender.com/">Webapp</a>
+                    <a target="_blank" href="https://shopwise-ss77.onrender.com/">Webapp</a>
                   </div>
                   <div className="inline-flex items-center gap-2">
                     <FaCode />{" "}
-                    <a href="https://github.com/kalbek/ShopWise">Source Code</a>
+                    <a target="_blank" href="https://github.com/kalbek/ShopWise">Source Code</a>
                   </div>
                 </div>
                 {/* tech stack tags */}
@@ -212,7 +212,7 @@ export default function works() {
 
       {/* Bookstore CMS works card. */}
       <div className="group">
-        <a href="https://bookstore-vc4k.onrender.com/">
+        <a target="_blank" href="https://bookstore-vc4k.onrender.com/">
           <div className="p-6 w-full h-auto  cursor-pointer group-hover:bg-light_cetacean_blue  hover:scale-[100.3%]   hover:bg-light_cetacean_blue rounded-lg ">
             <div className="flex flex-col items-start md:flex-row justify-start ">
               <div className="w-full md:w-[30%]  opacity-80 group-hover:opacity-100">
@@ -231,11 +231,11 @@ export default function works() {
                 <div className="flex gap-4 ml-[-1.7rem]  scale-75 py-4">
                   <div className="inline-flex items-center gap-2">
                     <FaLink />{" "}
-                    <a href="https://bookstore-vc4k.onrender.com/">Webapp</a>
+                    <a target="_blank" href="https://bookstore-vc4k.onrender.com/">Webapp</a>
                   </div>
                   <div className="inline-flex items-center gap-2">
                     <FaCode />{" "}
-                    <a href="https://github.com/kalbek/bookstore">
+                    <a target="_blank" href="https://github.com/kalbek/bookstore">
                       Source Code
                     </a>
                   </div>
@@ -275,7 +275,7 @@ export default function works() {
       </div>
       {/* Math works card. */}
       <div className="group">
-        <a href="https://math-magicians-cnxf.onrender.com/">
+        <a target="_blank" href="https://math-magicians-cnxf.onrender.com/">
           <div className="p-6 w-full h-auto  cursor-pointer group-hover:bg-light_cetacean_blue  hover:scale-[100.3%]   hover:bg-light_cetacean_blue rounded-lg ">
             <div className="flex flex-col items-start md:flex-row justify-start ">
               <div className="w-full md:w-[30%] opacity-80 group-hover:opacity-100">
@@ -291,13 +291,13 @@ export default function works() {
                 <div className="flex gap-4 ml-[-1.7rem]  scale-75 py-4">
                   <div className="inline-flex items-center gap-2">
                     <FaLink />{" "}
-                    <a href="https://math-magicians-cnxf.onrender.com/">
+                    <a target="_blank" href="https://math-magicians-cnxf.onrender.com/">
                       Webapp
                     </a>
                   </div>
                   <div className="inline-flex items-center gap-2">
                     <FaCode />{" "}
-                    <a href="https://github.com/kalbek/Math-Magicians">
+                    <a target="_blank" href="https://github.com/kalbek/Math-Magicians">
                       Source Code
                     </a>
                   </div>
@@ -337,7 +337,7 @@ export default function works() {
       </div>
       {/* SpaceTravellers hub. */}
       <div className="group">
-        <a href="https://space-travellers-6soy.onrender.com">
+        <a target="_blank" href="https://space-travellers-6soy.onrender.com">
           <div className="p-6 w-full h-auto  cursor-pointer group-hover:bg-light_cetacean_blue  hover:scale-[100.3%]   hover:bg-light_cetacean_blue rounded-lg ">
             <div className="flex flex-col items-start md:flex-row justify-start ">
               <div className="w-full md:w-[30%] opacity-80 group-hover:opacity-100">
@@ -356,13 +356,13 @@ export default function works() {
                 <div className="flex gap-4 ml-[-1.7rem]  scale-75 py-4">
                   <div className="inline-flex items-center gap-2">
                     <FaLink />{" "}
-                    <a href="https://space-travellers-6soy.onrender.com">
+                    <a target="_blank" href="https://space-travellers-6soy.onrender.com">
                       Webapp
                     </a>
                   </div>
                   <div className="inline-flex items-center gap-2">
                     <FaCode />{" "}
-                    <a href="https://github.com/kalbek/react-group-project">
+                    <a target="_blank" href="https://github.com/kalbek/react-group-project">
                       Source Code
                     </a>
                   </div>

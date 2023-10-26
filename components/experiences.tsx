@@ -7,7 +7,7 @@ export default function experiences() {
   return (
     <>
       <div className="group">
-        <a href="https://www.combanketh.et/">
+        <a target="_blank" href="https://www.combanketh.et/">
           <div className="p-6 w-full h-auto  cursor-pointer group-hover:bg-light_cetacean_blue  hover:scale-[100.3%]   hover:bg-light_cetacean_blue rounded-lg ">
             <div className="flex flex-col items-start md:flex-row justify-start ">
               <div className="w-full md:w-[60%] py-2 md:py-0 flex flex-col items-start md:ml-4 text-lg font-bold text-crayola">
@@ -105,7 +105,7 @@ export default function experiences() {
         </a>
       </div>
       <div className="group">
-        <a href="https://www.microverse.org/blog/microverse-full-stack-web-development-program">
+        <a target="_blank" href="https://www.microverse.org/blog/microverse-full-stack-web-development-program">
           <div className="p-6 w-full h-auto  cursor-pointer group-hover:bg-light_cetacean_blue  hover:scale-[100.3%]   hover:bg-light_cetacean_blue rounded-lg ">
             <div className="flex flex-col items-start md:flex-row justify-start ">
               <div className="w-full md:w-[60%] py-2 md:py-0 flex flex-col items-start md:ml-4 text-lg font-bold text-crayola">
