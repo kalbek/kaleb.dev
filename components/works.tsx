@@ -212,7 +212,7 @@ export default function works() {
 
       {/* Bookstore CMS works card. */}
       <div className="group">
-        <a target="_blank" href="https://bookstore-vc4k.onrender.com/">
+        <a target="_blank" href="https://bigbookshelf.vercel.app/">
           <div className="p-6 w-full h-auto  cursor-pointer group-hover:bg-light_cetacean_blue  hover:scale-[100.3%]   hover:bg-light_cetacean_blue rounded-lg ">
             <div className="flex flex-col items-start md:flex-row justify-start ">
               <div className="w-full md:w-[30%]  opacity-80 group-hover:opacity-100">
@@ -224,18 +224,17 @@ export default function works() {
                   integration.
                 </p>
                 <p className="text-cadet_gray text-sm mt-4 w-full">
-                  Bookstore CMS is an interesting website to track books fetched
-                  directly from API.Bookstore CMS is an interesting website to
-                  track books fetched directly from API.
+                  BigBookShelf is an interesting website for tracking books fetched
+                  directly from API.
                 </p>
                 <div className="flex gap-4 ml-[-1.7rem]  scale-75 py-4">
                   <div className="inline-flex items-center gap-2">
                     <FaLink />{" "}
-                    <a target="_blank" href="https://bookstore-vc4k.onrender.com/">Webapp</a>
+                    <a target="_blank" href="https://bigbookshelf.vercel.app/">Webapp</a>
                   </div>
                   <div className="inline-flex items-center gap-2">
                     <FaCode />{" "}
-                    <a target="_blank" href="https://github.com/kalbek/bookstore">
+                    <a target="_blank" href="https://github.com/kalbek/bigbookshelf">
                       Source Code
                     </a>
                   </div>
