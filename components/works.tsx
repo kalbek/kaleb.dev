@@ -5,7 +5,7 @@ import hack_summit from "../public/Hack-Summit.png";
 import adventure from "../public/snowboarding.png";
 import math from "../public/Math-Magicians.png";
 import shopwise from "../public/shop-wise.png";
-import bookstore from "../public/bookstore.png";
+import bookstore from "../public/bigbookshelf.png";
 import space from "../public/space.png";
 
 export default function works() {
